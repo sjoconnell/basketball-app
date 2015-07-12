@@ -1,0 +1,26 @@
+<h1>Edit your game</h1>
+
+<%= form_tag "/games/#{@game.id}", method: :patch do %>
+  <div>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, @game.title %>
+  </div>
+  <div>
+    <%= label_tag :address %>
+    <%= text_field_tag :address, @game.address %>
+  </div> 
+   <div>
+    <%= label_tag :start_time %>
+    <%= text_field_tag :start_time, @game.start_time %>
+  </div>
+   <div>
+    <%= label_tag :end_time %>
+    <%= text_field_tag :end_time, @game.end_time %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description, @game.description %>
+  </div>
+  <%= submit_tag "Edit your game" %>
+
+<% end %>
