@@ -10,6 +10,15 @@ Rails.application.routes.draw do
   get "/games/:id/edit" => 'games#edit'
   patch "/games/:id" => 'games#update'
   delete "/games/:id" => 'games#destroy'
-  post "/search" => 'games#search' 
+  post "/search" => 'games#search'
+
+  get "/profiles" => 'profiles#index'
+  get "/profiles/new" => 'profiles#new'
+  get "/profiles/:id" => 'profiles#show'
+  post "/profiles" => 'profiles#create'
+  get "/profiles/:id/edit" => 'profiles#edit'
+  patch "/profiles/:id" => 'profiles#update'
+  delete "/profiles/:id" => 'profiles#destroy'
+  post "/search" => 'profiles#search' 
 
 end

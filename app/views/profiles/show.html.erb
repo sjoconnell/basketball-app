@@ -1,0 +1,12 @@
+
+  <h2>First Name: <%= @profile.first_name %></h2>
+  <h2>Last Name: <%= @profile.last_name %></h2>
+  <h2>Height: <%= @profile.height %></h2>
+  <h2>Position: <%= @profile.position %></h2>
+  <h2>Experience: <%= @profile.experience %></h2>
+
+<% if user_signed_in? && current_user = @profile.user_id %>
+<%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit" %>
+<br>
+<%= link_to "Delete Profile", "/profiles/#{@profile.id}", method: :delete %>
+<% end %>
