@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(title: params[:title], address: params[:address], start_time: params[:start_time], end_time: params[:end_time], description: params[:description])
+    @game = Game.create(title: params[:title], address: params[:address], start_time: params[:start_time], end_time: params[:end_time], description: params[:description], status: "open", user_id: current_user.id)
     redirect_to "/games/#{@game.id}"
   end
 

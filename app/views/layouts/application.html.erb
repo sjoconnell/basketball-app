@@ -16,7 +16,9 @@
 
 <%= link_to "Basketball App", "/" %>
 
+<% if user_signed_in? %>
 <%= link_to "Create a Game", "/games/new" %>
+<% end %>
 
 <%= yield %>
 
