@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def index
-    
+    @profiles = Profile.all
   end
 
   def show
@@ -23,6 +23,8 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find_by(id: params[:id])
+    @profile.update(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience])
+    redirect_to "/profiles/#{@profile.id}"
   end
 
   def destroy
