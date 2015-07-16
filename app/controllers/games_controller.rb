@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :authenticate_game_user, only: [:edit, :update, :destroy]
   def index
     @games = Game.all
   end

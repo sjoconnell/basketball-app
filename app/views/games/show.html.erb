@@ -6,7 +6,7 @@
   <h2>End Time: <%= @game.end_time %></h2>
   <h2>Description: <%= @game.description %></h2>
 
-<% if user_signed_in? && current_user = @game.user_id %>
+<% if user_signed_in? && current_user.id == @game.user_id %>
 <%= link_to "Edit Game", "/games/#{@game.id}/edit" %>
 <br>
 <%= link_to "Delete Game", "/games/#{@game.id}", method: :delete %>

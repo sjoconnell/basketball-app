@@ -5,7 +5,7 @@
   <h2>Position: <%= @profile.position %></h2>
   <h2>Experience: <%= @profile.experience %></h2>
 
-<% if user_signed_in? && current_user = @profile.user_id %>
+<% if user_signed_in? && current_user.id == @profile.user_id %>
 <%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit" %>
 <br>
 <%= link_to "Delete Profile", "/profiles/#{@profile.id}", method: :delete %>
