@@ -18,9 +18,14 @@
 
 <%= link_to "Create a Game", "/games/new" if user_signed_in? %>
 
-<!-- <%= link_to "My Profile", "/profiles/" if user_signed_in? %> -->
+<% if user_signed_in? && Profile.find_by(user_id: current_user.id) == nil %>
+<%= link_to "Create Profile", "/profiles/new" %>
+<% end %>
 
-<!-- <%= link_to "Create Profile", "/profiles/new" if user_signed_in? %> -->
+<% if user_signed_in? && Profile.find_by(user_id: current_user.id) != nil %>
+<%= link_to "My Profile", "/profiles/#{Profile.find_by(user_id: current_user.id).user_id}" %>
+<% end %>
+
 
 <%= yield %>
 
