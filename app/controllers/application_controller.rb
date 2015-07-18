@@ -15,4 +15,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_profile_maker
+    unless user_signed_in? && Profile.find_by(user_id: current_user.id) != nil
+      redirect_to "/"
+    end
+  end
+
+  def authenticate_game_maker
+    unless user_signed_in?
+      redirect_to "/"
+    end
+  end
+
 end
