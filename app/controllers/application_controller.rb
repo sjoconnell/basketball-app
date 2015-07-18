@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_profile_maker
-    unless user_signed_in? && Profile.find_by(user_id: current_user.id) != nil
+    unless user_signed_in? && Profile.find_by(user_id: current_user.id) == nil
       redirect_to "/"
     end
   end
