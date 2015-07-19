@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get "/profiles/:id/edit" => 'profiles#edit'
   patch "/profiles/:id" => 'profiles#update'
   delete "/profiles/:id" => 'profiles#destroy'
-  post "/search" => 'profiles#search' 
+  post "/search" => 'profiles#search'
+
+  post "/gamed_users" => 'gamed_users#create' 
+  delete "/gamed_users/:id" => 'gamed_users#destroy'
 
 end

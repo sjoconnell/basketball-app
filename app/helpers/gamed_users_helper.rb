@@ -1,0 +1,2 @@
+module GamedUsersHelper
+end

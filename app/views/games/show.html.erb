@@ -6,6 +6,19 @@
   <h2>End Time: <%= @game.end_time %></h2>
   <h2>Description: <%= @game.description %></h2>
 
+<% if user_signed_in? %>
+<%= form_tag '/gamed_users', method: :post do %>
+  <div>
+    <%= hidden_field_tag :game_id, @game.id %>
+  </div>
+<%= submit_tag "Join Game" %>
+<% end %>
+<% end %>
+
+<% if user_signed_in? && GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first != nil %>
+<%= link_to "Leave Game", "/gamed_users/#{GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first.id}", method: :delete %>
+<% end %>
+
 <% if user_signed_in? && current_user.id == @game.user_id %>
 <%= link_to "Edit Game", "/games/#{@game.id}/edit" %>
 <br>
