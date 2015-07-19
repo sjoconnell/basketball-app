@@ -23,7 +23,7 @@
 <% end %>
 
 <% if user_signed_in? && Profile.find_by(user_id: current_user.id) != nil %>
-<%= link_to "My Profile", "/profiles/#{Profile.find_by(user_id: current_user.id).user_id}" %>
+<%= link_to "My Profile", "/profiles/#{Profile.find_by(user_id: current_user.id).id}" %>
 <% end %>
 
 
