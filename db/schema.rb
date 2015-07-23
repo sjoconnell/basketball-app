@@ -11,26 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711041920) do
+ActiveRecord::Schema.define(version: 20150723020143) do
 
   create_table "gamed_users", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "game_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "title",          limit: 255
-    t.string   "address",        limit: 255
-    t.string   "status",         limit: 255
-    t.integer  "players_joined", limit: 4
+    t.string   "title",           limit: 255
+    t.string   "address",         limit: 255
+    t.string   "status",          limit: 255
+    t.integer  "players_joined",  limit: 4
     t.datetime "start_time"
     t.datetime "end_time"
-    t.text     "description",    limit: 65535
-    t.integer  "user_id",        limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.text     "description",     limit: 65535
+    t.integer  "user_id",         limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "players_allowed", limit: 4
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -40,8 +41,8 @@ ActiveRecord::Schema.define(version: 20150711041920) do
     t.string   "position",   limit: 255
     t.string   "experience", limit: 255
     t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,8 +56,8 @@ ActiveRecord::Schema.define(version: 20150711041920) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
