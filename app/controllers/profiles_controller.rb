@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find_by(id: params[:id])
+    @joinedgames = GamedUser.where(user_id: @profile.user_id )
   end
 
   def new
