@@ -33,6 +33,10 @@ class GamesController < ApplicationController
 
   def destroy
     @game = Game.find_by(id: params[:id])
+    usersjoined = GamedUser.where(game_id: @game.id)
+    usersjoined.each do |user|
+      user.destroy
+    end
     @game.destroy
     redirect_to "/"
   end
