@@ -24,3 +24,11 @@
 <br>
 <%= link_to "Delete Game", "/games/#{@game.id}", method: :delete %>
 <% end %>
+
+<h1>Players:</h1>
+<% @joinedusers.each do |joineduser| %>
+  <% Profile.where(user_id: joineduser.user_id).each do |player| %>
+    <h2>Name: <%= link_to player.first_name, "/profiles/#{player.id}" %></h2>
+  <% end %>
+<% end %>
+

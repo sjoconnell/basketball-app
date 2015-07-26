@@ -8,6 +8,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find_by(id: params[:id])
+    @joinedusers = GamedUser.where(game_id: @game.id)
   end
 
   def new
