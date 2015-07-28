@@ -10,6 +10,27 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require theme/bootstrap
+ *= require theme/bootstrap-theme
+ *= require theme/font-awesome
+ *= require theme/animate
+ *= require theme/flexslider
+ *= require theme/jasny-bootstrap.min
+ *= require theme/magnific-popup
+ *= require theme/one-page-dark
+ *= require theme/one-page
+ *= require theme/owl.carousel
+ *= require theme/owl.theme
+ *= require theme/rev-style
+ *= require theme/style
+ *= require theme/sweetalert
+ *= require theme/yamm
+ *= require theme/YTPlayer
+ *= require theme/cubeportfolio
+ *= require theme/style
+ *= require theme/settings-ie8
+ *= require theme/settings
+ *= require theme/sky-forms
  *= require_tree .
  *= require_self
  */
