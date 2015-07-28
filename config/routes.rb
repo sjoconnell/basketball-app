@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   root 'games#index'
 
+  namespace :api do
+    namespace :v1 do
+
+    end
+  end
+
   get "/games" => 'games#index'
   get "/games/new" => 'games#new'
   get "/games/:id" => 'games#show'
