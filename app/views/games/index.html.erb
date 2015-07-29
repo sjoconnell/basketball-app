@@ -5,7 +5,17 @@
   <h2>Start Time: <%= game.start_time.strftime("%b %e%l:%M%p") %></h2>
   <h2>End Time: <%= game.end_time.strftime("%b %e%l:%M%p") %></h2>
   <h2>Players Joined: <%= game.players_joined %></h2>
-  <h2>Description: <%= game.description %></h2>
+  <div>
+    <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAOPDPja6dc3aYifSA81tVlHiERboa30K8
+      &q=<%= game.address %>" allowfullscreen>
+    </iframe>
+  </div>
   <br><hr> 
   <% end %>
 <%end%>
+
+<!-- <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOPDPja6dc3aYifSA81tVlHiERboa30K8"></script> -->

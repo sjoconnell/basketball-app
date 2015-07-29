@@ -5,6 +5,15 @@
   <h2>End Time: <%= @game.end_time.strftime("%b %e%l:%M%p")  %></h2>
   <h2>Players Joined: <%= @game.players_joined %></h2>
   <h2>Description: <%= @game.description %></h2>
+  <div>
+    <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAOPDPja6dc3aYifSA81tVlHiERboa30K8
+      &q=<%= @game.address %>" allowfullscreen>
+    </iframe>
+  </div>
 
 <% if user_signed_in? && GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first == nil %>
 <%= form_tag '/gamed_users', method: :post do %>
