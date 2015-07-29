@@ -8,28 +8,73 @@
 </head>
 <body>
 
-<!-- <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOPDPja6dc3aYifSA81tVlHiERboa30K8"></script> -->
+    <div id="wrapper">
 
-<%= link_to "Basketball App", "/" %>
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                        Basketball App
+                    </a>
+                </li>
+                <li>
+                    <a><%= link_to "Sign Up", "/users/sign_up" if not current_user %></a>
+                </li>
+                <li>
+                    <a><%= link_to "Sign In", "/users/sign_in" if not current_user %></a>
+                </li>
+                <li>
+                    <a><%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %></a>
+                </li>
+                <li>
+                    <a><%= link_to "Create a Game", "/games/new" if user_signed_in? %></a>
+                </li>
+                <li>
+                    <a><% if user_signed_in? && Profile.find_by(user_id: current_user.id) == nil %>
+                        <%= link_to "Create Profile", "/profiles/new" %>
+                        <% end %></a>
+                </li>
+                <li>
+                    <a><% if user_signed_in? && Profile.find_by(user_id: current_user.id) != nil %>
+                        <%= link_to "My Profile", "/profiles/#{Profile.find_by(user_id: current_user.id).id}" %>
+                        <% end %></a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
 
-<%= link_to "Sign Up", "/users/sign_up" if not current_user %>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <%= yield %>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
 
-<%= link_to "Sign In", "/users/sign_in" if not current_user %>
+    </div>
+    <!-- /#wrapper -->
 
-<%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-<%= link_to "Create a Game", "/games/new" if user_signed_in? %>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
-<% if user_signed_in? && Profile.find_by(user_id: current_user.id) == nil %>
-<%= link_to "Create Profile", "/profiles/new" %>
-<% end %>
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
 
-<% if user_signed_in? && Profile.find_by(user_id: current_user.id) != nil %>
-<%= link_to "My Profile", "/profiles/#{Profile.find_by(user_id: current_user.id).id}" %>
-<% end %>
-
-
-<%= yield %>
 
 </body>
+
 </html>
