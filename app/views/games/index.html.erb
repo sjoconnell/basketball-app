@@ -2,9 +2,9 @@
   <% if game.status == "open" %>
   <h2>Title: <%=link_to game.title, "/games/#{game.id}"  %></h2>
   <h2>Address: <%= game.address %></h2>
+  <h2>Start Time: <%= game.start_time.strftime("%b %e%l:%M%p") %></h2>
+  <h2>End Time: <%= game.end_time.strftime("%b %e%l:%M%p") %></h2>
   <h2>Players Joined: <%= game.players_joined %></h2>
-  <h2>Start Time: <%= game.start_time %></h2>
-  <h2>End Time: <%= game.end_time %></h2>
   <h2>Description: <%= game.description %></h2>
   <br><hr> 
   <% end %>
