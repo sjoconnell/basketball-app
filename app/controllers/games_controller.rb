@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :authenticate_game_maker, only: [:new, :create]
 
   def index
-    @games = Game.all
+
   end
 
   def show
