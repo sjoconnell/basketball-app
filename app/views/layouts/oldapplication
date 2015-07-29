@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BasketballApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOPDPja6dc3aYifSA81tVlHiERboa30K8"></script> -->
+
+<%= link_to "Basketball App", "/" %>
+
+<%= link_to "Sign Up", "/users/sign_up" if not current_user %>
+
+<%= link_to "Sign In", "/users/sign_in" if not current_user %>
+
+<%= link_to "Sign Out", "/users/sign_out", method: :delete if current_user %>
+
+<%= link_to "Create a Game", "/games/new" if user_signed_in? %>
+
+<% if user_signed_in? && Profile.find_by(user_id: current_user.id) == nil %>
+<%= link_to "Create Profile", "/profiles/new" %>
+<% end %>
+
+<% if user_signed_in? && Profile.find_by(user_id: current_user.id) != nil %>
+<%= link_to "My Profile", "/profiles/#{Profile.find_by(user_id: current_user.id).id}" %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>
