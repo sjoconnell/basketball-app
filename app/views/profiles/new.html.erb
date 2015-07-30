@@ -14,8 +14,7 @@
     <%= text_field_tag :height %>
   </div>  
   <div>
-    <%= label_tag :position %>
-    <%= text_field_tag :position %>
+  <h4>Position: <%= select_tag(:position, options_for_select([['PG'], ['SG'], ['SF'], ['PF'], ['C']], selected: :position )) %></h4>
   </div>
   <div>
     <%= label_tag :experience %>

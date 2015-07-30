@@ -1,21 +1,15 @@
-<% @games.each do |game| %>
-  <% if game.status == "open" %>
-  <h2>Title: <%=link_to game.title, "/games/#{game.id}"  %></h2>
-  <h2>Address: <%= game.address %></h2>
-  <h2>Start Time: <%= game.start_time.strftime("%b %e%l:%M%p") %></h2>
-  <h2>End Time: <%= game.end_time.strftime("%b %e%l:%M%p") %></h2>
-  <h2>Players Joined: <%= game.players_joined %></h2>
-  <div>
-    <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAOPDPja6dc3aYifSA81tVlHiERboa30K8
-      &q=<%= game.address %>" allowfullscreen>
-    </iframe>
+<script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUx2rd-iiFODbyxZumrl1VU9FRHtU1lW0"></script>
+<div ng-controller="gamesCtrl" ng-init="setup()">
+  <div ng-repeat="game in games">
+<!--   need to make sure only games in open status show -->
+    <h2>Title: <a href="/games/{{game.id}}">{{game.title}}</a></h2>
+    <h2>Address: {{game.address}}</h2>
+    <h2>Start Time: {{game.start_time}}</h2>
+    <h2>End Time: {{game.end_time}}</h2>
+    <h2>Players Joined: {{game.players_joined}}</h2>
+    <br><hr>
   </div>
-  <br><hr> 
-  <% end %>
-<%end%>
 
-<!-- <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOPDPja6dc3aYifSA81tVlHiERboa30K8"></script> -->
+  <div id="map">
+  </div>
+</div>
