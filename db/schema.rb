@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723020143) do
+ActiveRecord::Schema.define(version: 20150730011809) do
 
   create_table "gamed_users", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20150723020143) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "players_allowed", limit: 4
+    t.float    "latitude",        limit: 24
+    t.float    "longitude",       limit: 24
   end
 
   create_table "profiles", force: :cascade do |t|

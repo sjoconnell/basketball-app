@@ -8,4 +8,6 @@ json.games @games do |game|
   json.end_time to_date(game.end_time)
   json.description game.description
   json.user_id game.user_id
+  json.lat game.latitude
+  json.long game.longitude
 end

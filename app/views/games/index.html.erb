@@ -1,5 +1,5 @@
 <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUx2rd-iiFODbyxZumrl1VU9FRHtU1lW0"></script>
-<div ng-controller="gamesCtrl" ng-init="setup()">
+<div ng-controller="gamesCtrl">
   <div ng-repeat="game in games">
 <!--   need to make sure only games in open status show -->
     <h2>Title: <a href="/games/{{game.id}}">{{game.title}}</a></h2>
