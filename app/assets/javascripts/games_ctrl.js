@@ -11,7 +11,7 @@
         infowindow.close();
       }
       infowindow = new google.maps.InfoWindow({
-        content: marker.title
+        content: "<a href='/games/" + marker.game_id + "'>" + marker.title + "</a>"
       });
 
       infowindow.open(map, marker);
@@ -38,6 +38,7 @@
                 position: myLatlng,
                 map: map,
                 title: game.title,
+                game_id: game.id
             });
             bounds.extend(marker.position);
             google.maps.event.addListener(marker, 'click', function() {
