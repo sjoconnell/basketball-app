@@ -16,8 +16,12 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.create(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience], user_id: current_user.id)
-    redirect_to "/profiles/#{@profile.id}"
+    @profile = Profile.new(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience], user_id: current_user.id)
+    if @profile.save
+      redirect_to "/profiles/#{@profile.id}"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,8 +30,11 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find_by(id: params[:id])
-    @profile.update(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience])
+    if @profile.update(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience])
     redirect_to "/profiles/#{@profile.id}"
+    else
+      render :edit
+    end
   end
 
   def destroy
