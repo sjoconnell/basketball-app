@@ -11,11 +11,11 @@
   </div> 
    <div>
     <%= label_tag :start_time %>
-    <%= text_field_tag :start_time, @game.start_time %>
+    <%= text_field_tag :start_time, @game.start_time.strftime("%b %e%l:%M%p") %>
   </div>
    <div>
     <%= label_tag :end_time %>
-    <%= text_field_tag :end_time, @game.end_time %>
+    <%= text_field_tag :end_time, @game.end_time.strftime("%b %e%l:%M%p") %>
   </div>
   <div>
     <%= label_tag :description %>

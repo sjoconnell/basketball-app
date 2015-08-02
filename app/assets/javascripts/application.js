@@ -15,5 +15,4 @@
 //= require angular
 //= require app
 //= require theme/bootstrap
-//= require theme/jquery
 //= require_tree .
