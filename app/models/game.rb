@@ -7,4 +7,5 @@ class Game < ActiveRecord::Base
   validates :players_allowed, presence: true
   validates :players_allowed, numericality: true
 
+
 end
