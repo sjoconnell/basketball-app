@@ -27,7 +27,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    coordinates = Geocoder.coordinates(:address)
+    coordinates = Geocoder.coordinates(params[:address])
     @game = Game.find_by(id: params[:id])
     @game.update(title: params[:title], address: params[:address], start_time: params[:start_time], end_time: params[:end_time], description: params[:description], latitude: coordinates[0], longitude: coordinates[1] )
     redirect_to "/games/#{@game.id}"
