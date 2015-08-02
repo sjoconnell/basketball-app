@@ -15,7 +15,7 @@
     </iframe>
   </div>
 
-<% if user_signed_in? && GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first == nil %>
+<% if user_signed_in? && GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first == nil && @game.status != "full" %>
 <%= form_tag '/gamed_users', method: :post do %>
   <div>
     <%= hidden_field_tag :game_id, @game.id %>

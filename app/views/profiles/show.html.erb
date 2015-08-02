@@ -13,7 +13,7 @@
 
 <h1>Joined Games</h1>
 <% @joinedgames.each do |joinedgame| %>
-  <% Game.where(id: joinedgame.game_id).each do |game| %>
+  <% Game.where("id = #{joinedgame.game_id} AND end_time > ?", Time.now).each do |game| %>
     <h2>Title: <%= link_to game.title, "/games/#{game.id}" %></h2>
   <% end %>
 <% end %>
