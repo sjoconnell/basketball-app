@@ -10,29 +10,70 @@
   </div>
 <% end %>
 
-<h1>Edit your game</h1>
 
 <%= form_tag "/games/#{@game.id}", method: :patch do %>
-  <div>
-    <%= label_tag :title %>
-    <%= text_field_tag :title, @game.title %>
+<h1 class="create-game">Edit Game</h1>
+<div class ="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :title %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :title, @game.title %>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :address %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :address, @game.address %>
+        </div>
+    </div>  
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Start Time</h3>
+      </div>
+        <div class="panel-body">
+          <%= datetime_local_field :game, :start_time %>
+      </div>
+    </div>  
   </div>
-  <div>
-    <%= label_tag :address %>
-    <%= text_field_tag :address, @game.address %>
-  </div> 
-   <div>
-    <%= label_tag :start_time %>
-    <%= text_field_tag :start_time, @game.start_time.strftime("%b %e%l:%M%p") %>
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :players_allowed %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :players_allowed, @game.players_allowed %>
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :description %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :description, @game.description %>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">End Time</h3>
+      </div>
+        <div class="panel-body">
+          <%= datetime_local_field :game, :end_time %>
+      </div>
+    </div>
   </div>
-   <div>
-    <%= label_tag :end_time %>
-    <%= text_field_tag :end_time, @game.end_time.strftime("%b %e%l:%M%p") %>
-  </div>
-  <div>
-    <%= label_tag :description %>
-    <%= text_field_tag :description, @game.description %>
-  </div>
-  <%= submit_tag "Edit your game" %>
+
+
+    <div class="submit-button">
+      <%= submit_tag "Edit Game" %>
+    </div>
+</div>
 
 <% end %>

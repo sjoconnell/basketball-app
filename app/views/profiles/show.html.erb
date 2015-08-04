@@ -12,8 +12,15 @@
 <% end %>
 
 <h1>Joined Games</h1>
-<% @joinedgames.each do |joinedgame| %>
-  <% Game.where("id = #{joinedgame.game_id} AND end_time > ?", Time.now).each do |game| %>
-    <h2>Title: <%= link_to game.title, "/games/#{game.id}" %></h2>
-  <% end %>
-<% end %>
+  <table class="table table-condensed" border="1" style="width:50%">
+  <th>Title</th>
+  <th>Status</th>
+      <tr>
+        <% @joinedgames.each do |joinedgame| %>
+        <% Game.where("id = #{joinedgame.game_id} AND end_time > ?", Time.now).each do |game| %>
+        <td><%= link_to game.title, "/games/#{game.id}" %></td>
+        <td><%= game.status %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>

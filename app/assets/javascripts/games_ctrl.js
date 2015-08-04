@@ -5,18 +5,22 @@
 
     window.scope = $scope;
     var infowindow;
+    $scope.gameinfo;
 
     function setinfowindow(map, marker) {
       if(infowindow){
         infowindow.close();
       }
+
+      $scope.gameinfo = marker.title
+
       infowindow = new google.maps.InfoWindow({
         content: "<a href='/games/" + marker.game_id + "'>" + marker.title + "</a>"
       });
 
       infowindow.open(map, marker);
-
-    }
+      $scope.$apply();
+    };
 
 
     function initialize() {
