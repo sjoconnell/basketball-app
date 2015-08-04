@@ -10,31 +10,72 @@
   </div>
 <% end %>
 
-<h1>Create a new game</h1>
-
 <%= form_tag '/games', method: :post do %>
-  <div>
-    <%= label_tag :title %>
-    <%= text_field_tag :title %>
+<h1 class="create-game">Create Game</h1>
+<div class ="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :title %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :title %>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :address %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :address %>
+        </div>
+    </div>  
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Start Time</h3>
+      </div>
+        <div class="panel-body">
+          <%= datetime_local_field :game, :start_time %>
+      </div>
+    </div>  
   </div>
-  <div>
-    <%= label_tag :address %>
-    <%= text_field_tag :address %>
-  </div>  
-  <div>
-    Start Time: <%= datetime_local_field :game, :start_time %>
-  </div>  
-  <div>
-    End Time: <%= datetime_local_field :game, :end_time %>
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :players_allowed %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :players_allowed %>
+      </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= label_tag :description %></h3>
+      </div>
+        <div class="panel-body">
+          <%= text_field_tag :description %>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">End Time</h3>
+      </div>
+        <div class="panel-body">
+          <%= datetime_local_field :game, :end_time %>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= label_tag :players_allowed %>
-    <%= text_field_tag :players_allowed %>
-  </div>
-  <div>
-    <%= label_tag :description %>
-    <%= text_field_tag :description %>
-  </div>
-  <%= submit_tag "Create a game" %>
+
+
+    <div class="submit-button">
+      <%= submit_tag "Create a game" %>
+    </div>
+</div>
 
 <% end %>
+
+
+
