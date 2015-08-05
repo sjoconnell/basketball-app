@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience], user_id: current_user.id)
+    @profile = Profile.new(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience], user_id: current_user.id, image: params[:image])
     if @profile.save
       flash[:success] = "Profile Created"
       redirect_to "/profiles/#{@profile.id}"
@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = Profile.find_by(id: params[:id])
-    if @profile.update(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience])
+    if @profile.update(first_name: params[:first_name], last_name: params[:last_name], height: params[:height], position: params[:position], experience: params[:experience], image: params[:image])
       flash[:warning] = "Profile Updated"
     redirect_to "/profiles/#{@profile.id}"
     else

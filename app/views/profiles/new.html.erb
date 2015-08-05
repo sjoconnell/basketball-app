@@ -12,7 +12,7 @@
 
 <h1>Create Your Profile</h1>
 
-<%= form_tag '/profiles', method: :post do %>
+<%= form_tag '/profiles', multipart: true, method: :post do %>
   <div>
     <h4>
       <%= label_tag :first_name %>
@@ -35,6 +35,11 @@
   </div>
   <div>
     <h4>Experience: <%= select_tag(:experience, options_for_select([['None'], ['Recreational'], ['High School'], ['College'], ['Pro']], selected: :experience )) %>
+    </h4>
+  </div>
+  <div>
+    <h4>
+      Picture: <%= file_field_tag :image %>
     </h4>
   </div>
   <%= submit_tag "Create Your Profile" %>

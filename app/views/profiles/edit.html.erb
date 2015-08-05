@@ -38,6 +38,11 @@
     <h3>Experience: <%= select_tag(:experience, options_for_select([['None'], ['Recreational'], ['High School'], ['College'], ['Pro']], selected: @profile.experience )) %>
     </h3>
   </div>
+  <div>
+    <h4>
+      Picture: <%= file_field_tag :image, @profile.image %>
+    </h4>
+  </div>
   <%= submit_tag "Edit Your Profile" %>
 
 <% end %>
