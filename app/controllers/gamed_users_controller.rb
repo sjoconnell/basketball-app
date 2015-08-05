@@ -15,9 +15,11 @@ class GamedUsersController < ApplicationController
     GamedUser.create(user_id: current_user.id, game_id: params[:game_id])
     game = Game.find_by(id: params[:game_id])
     game.update(players_joined: game.players_joined + 1)
+    flash[:success] = "Game Joined"
     if game.players_joined == game.players_allowed
       game.update(status: "full")
     end
+    flash[:success] = "Game Joined"
     redirect_to "/games/#{params[:game_id]}"
   end
 
@@ -37,6 +39,7 @@ class GamedUsersController < ApplicationController
     if game.status == "full"
       game.update(status: "open")
     end
+    flash[:danger] = "You have left the Game"
     redirect_to "/"
   end
 end
