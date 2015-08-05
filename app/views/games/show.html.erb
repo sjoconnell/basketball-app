@@ -1,14 +1,19 @@
 
-  <h2>Title: <%= @game.title %></h2>
-  <h2>Address: <%= @game.address %></h2>
-  <h2>Start Time: <%= @game.start_time.strftime("%b %e %l:%M%p")  %></h2>
-  <h2>End Time: <%= @game.end_time.strftime("%b %e%l:%M%p")  %></h2>
-  <h2>Players Joined: <%= @game.players_joined %></h2>
-  <h2>Description: <%= @game.description %></h2>
+  <div class="col-md-6">
+    <h1 class="profile">Game Information</h1>
+    <ul class="list-group" >
+      <li class="list-group-item"><h5>Title: <%= @game.title %></h5></li>
+      <li class="list-group-item"><h5>Address: <%= @game.address %></h5></li>
+      <li class="list-group-item"><h5>Start Time: <%= @game.start_time.strftime("%b %e %l:%M%p")  %></h5></li>
+      <li class="list-group-item"><h5>End Time: <%= @game.end_time.strftime("%b %e%l:%M%p")  %></h5></li>
+      <li class="list-group-item"><h5>Players Joined: <%= @game.players_joined %> of <%= @game.players_allowed %></h5></li>
+      <li class="list-group-item"><h5>Description: <%= @game.description %></h5></li>
+    </ul>
+  </div>
 
-
-<h1>Players</h1>
-  <table class="table table-condensed" border="1" style="width:50%">
+<div class="col-md-6">
+<h1 class="joinedplayers">Players</h1>
+  <table class="joinedplayerstable" border="1">
   <th>Name</th>
   <th>Height</th>
   <th>Position</th>
@@ -24,6 +29,7 @@
       <% end %>
     <% end %>
   </table>
+  </div>
 
   <div>
     <iframe

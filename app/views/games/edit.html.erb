@@ -20,7 +20,7 @@
         <h3 class="panel-title"><%= label_tag :title %></h3>
       </div>
         <div class="panel-body">
-          <%= text_field_tag :title, @game.title %>
+          <%= text_field_tag :title, @game.title, class: "fulllength" %>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
         <h3 class="panel-title"><%= label_tag :address %></h3>
       </div>
         <div class="panel-body">
-          <%= text_field_tag :address, @game.address %>
+          <%= text_field_tag :address, @game.address, class: "fulllength" %>
         </div>
     </div>  
 
@@ -56,7 +56,7 @@
         <h3 class="panel-title"><%= label_tag :description %></h3>
       </div>
         <div class="panel-body">
-          <%= text_field_tag :description, @game.description %>
+          <%= text_field_tag :description, @game.description, class: "fulllength" %>
       </div>
     </div>
 

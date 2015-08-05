@@ -17,7 +17,8 @@
         title: marker.title,
         start_time: marker.start_time,
         end_time: marker.end_time,
-        id: marker.game_id
+        id: marker.game_id,
+        spots_left: marker.spots_left
       });
 
       infowindow = new google.maps.InfoWindow({
@@ -52,6 +53,7 @@
                 address: game.address,
                 start_time: game.start_time,
                 end_time: game.end_time,
+                spots_left: ((game.players_allowed)-(game.players_joined))
 
             });
             bounds.extend(marker.position);

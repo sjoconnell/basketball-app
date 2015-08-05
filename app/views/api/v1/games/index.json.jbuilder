@@ -10,4 +10,5 @@ json.games @games do |game|
   json.user_id game.user_id
   json.lat game.latitude
   json.long game.longitude
+  json.players_allowed game.players_allowed
 end

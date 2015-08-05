@@ -40,14 +40,6 @@ div.submit-button {
   text-align: center;
 }
 
-div.jumbotron {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 250px;
-  background-color: white;
-}
-
 h1.profile {
   text-align: center;
   color: white;
@@ -63,7 +55,30 @@ h1.joinedgames {
   color: white;
 }
 
+h1.joinedplayers {
+  text-align: center;
+  color: white;
+}
+
 table.profiletable {
   background-color: white;
   width: 100%;
 }
+
+table.joinedplayerstable {
+  background-color: white;
+  width: 100%;
+}
+
+input.fulllength {
+  width: 100%;
+}
+
+#clickgameinfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  background-color: white;
+}
+

@@ -44,12 +44,12 @@
                         <% end %></a>
                 </li>
             </ul>
-                <div class="jumbotron" style="color: black;" ng-if="gameinfo">
-                <h3><a href="/games/{{gameinfo.id}}">{{gameinfo.title}}</a></h3>
-                <hr>
-                <h4>{{gameinfo.address}}</h4>
-                <hr>
-                <h4>{{gameinfo.start_time}}</h4>
+
+                <div class="list-group" ng-if="gameinfo" id="clickgameinfo">
+                    <a href="/games/{{gameinfo.id}}" class="list-group-item disabled"><h4>{{gameinfo.title}}</h4></a>
+                    <a class="list-group-item">{{gameinfo.address}}</a>
+                    <a class="list-group-item">{{gameinfo.start_time}}</a>
+                    <a class="list-group-item">Spots Left: {{gameinfo.spots_left}}</a>
                 </div>
          </div>
         <!-- /#sidebar-wrapper -->       <!-- Page Content -->
