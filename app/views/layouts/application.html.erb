@@ -46,7 +46,7 @@
             </ul>
 
                 <div class="list-group" ng-if="gameinfo" id="clickgameinfo">
-                    <a href="/games/{{gameinfo.id}}" class="list-group-item disabled"><h4>{{gameinfo.title}}</h4></a>
+                    <a href="/games/{{gameinfo.id}}" class="list-group-item" id="game-title-popup"><h4>{{gameinfo.title}}</h4></a>
                     <a class="list-group-item">{{gameinfo.address}}</a>
                     <a class="list-group-item">{{gameinfo.start_time}}</a>
                     <a class="list-group-item">Spots Left: {{gameinfo.spots_left}}</a>

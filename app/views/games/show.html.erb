@@ -31,16 +31,8 @@
   </table>
   </div>
 
-  <div>
-    <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAUx2rd-iiFODbyxZumrl1VU9FRHtU1lW0
-      &q=<%= @game.address %>" allowfullscreen>
-    </iframe>
-  </div>
-
+<div class="col-md-12">
+  <div class="profilebutton">
 <% if user_signed_in? && GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first == nil && @game.status != "full" %>
 <%= form_tag '/gamed_users', method: :post do %>
   <div>
@@ -51,13 +43,30 @@
 <% end %>
 
 <% if user_signed_in? && GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first != nil %>
-<%= link_to "Leave Game", "/gamed_users/#{GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first.id}", method: :delete %>
+<button type="button" class="btn btn-default">
+<%= link_to "Leave Game", "/gamed_users/#{GamedUser.where("game_id = ? AND user_id = ?",@game.id, current_user.id).first.id}", method: :delete %></button>
 <% end %>
 
 <% if user_signed_in? && current_user.id == @game.user_id %>
-<%= link_to "Edit Game", "/games/#{@game.id}/edit" %>
-<br>
-<%= link_to "Delete Game", "/games/#{@game.id}", method: :delete %>
+<button type="button" class="btn btn-default">
+<%= link_to "Edit Game", "/games/#{@game.id}/edit" %></button>
+<button type="button" class="btn btn-default">
+<%= link_to "Delete Game", "/games/#{@game.id}", method: :delete %></button>
 <% end %>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div>
+    <iframe
+    width="800"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAUx2rd-iiFODbyxZumrl1VU9FRHtU1lW0
+      &q=<%= @game.address %>" allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
 
 
