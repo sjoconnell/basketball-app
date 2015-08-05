@@ -12,7 +12,13 @@
         infowindow.close();
       }
 
-      $scope.gameinfo = marker.title
+      $scope.gameinfo = ({
+        address: marker.address,
+        title: marker.title,
+        start_time: marker.start_time,
+        end_time: marker.end_time,
+        id: marker.game_id
+      });
 
       infowindow = new google.maps.InfoWindow({
         content: "<a href='/games/" + marker.game_id + "'>" + marker.title + "</a>"
@@ -42,7 +48,11 @@
                 position: myLatlng,
                 map: map,
                 title: game.title,
-                game_id: game.id
+                game_id: game.id,
+                address: game.address,
+                start_time: game.start_time,
+                end_time: game.end_time,
+
             });
             bounds.extend(marker.position);
             google.maps.event.addListener(marker, 'click', function() {

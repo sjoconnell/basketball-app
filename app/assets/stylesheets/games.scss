@@ -1,6 +1,31 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// html {
+
+// body {
+//   background-image: image-url('basketball_court.jpg');
+//   background-repeat: no-repeat;
+//   background-size: 100%;
+//   height: 100%;
+//   margin: 0;
+// }
+
+body {
+  background-image: image-url('basketball_court.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+// #page-content-wrapper {
+//   background-image: image-url('basketball_court.jpg');
+//   background-repeat: no-repeat;
+//   background-size: 100%;
+//   height: 100%;
+//   margin: 0;
+// }
 
 #map {
   height: 600px;
@@ -8,6 +33,7 @@
 
 h1.create-game {
   text-align: center;
+  color: white;
 }
 
 div.submit-button {
@@ -19,4 +45,25 @@ div.jumbotron {
   bottom: 0;
   left: 0;
   width: 250px;
+  background-color: white;
+}
+
+h1.profile {
+  text-align: center;
+  color: white;
+}
+
+li.list-group-item {
+  height: 50px;
+  width: auto;
+}
+
+h1.joinedgames {
+  text-align: center;
+  color: white;
+}
+
+table.profiletable {
+  background-color: white;
+  width: 100%;
 }

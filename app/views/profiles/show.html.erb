@@ -1,18 +1,18 @@
 
-  <h2>First Name: <%= @profile.first_name %></h2>
-  <h2>Last Name: <%= @profile.last_name %></h2>
-  <h2>Height: <%= @profile.height %></h2>
-  <h2>Position: <%= @profile.position %></h2>
-  <h2>Experience: <%= @profile.experience %></h2>
+  <div class="col-md-6">
+    <h1 class="profile">My Profile</h1>
+    <ul class="list-group" >
+      <li class="list-group-item"><h4>First Name: <%= @profile.first_name %></h4></li>
+      <li class="list-group-item"><h4>Last Name: <%= @profile.last_name %></h4></li>
+      <li class="list-group-item"><h4>Height: <%= @profile.height %></h4></li>
+      <li class="list-group-item"><h4>Position: <%= @profile.position %></h4></li>
+      <li class="list-group-item"><h4>Experience: <%= @profile.experience %></h4></li>
+    </ul>
+  </div>
 
-<% if user_signed_in? && current_user.id == @profile.user_id %>
-<%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit" %>
-<br>
-<%= link_to "Delete Profile", "/profiles/#{@profile.id}", method: :delete %>
-<% end %>
-
-<h1>Joined Games</h1>
-  <table class="table table-condensed" border="1" style="width:50%">
+<div class="col-md-6">
+<h1 class="joinedgames">Joined Games</h1>
+  <table class="profiletable" border="1">
   <th>Title</th>
   <th>Status</th>
       <tr>
@@ -24,3 +24,13 @@
       <% end %>
     <% end %>
   </table>
+</div>
+
+<div class="col-md-12">
+  <div class="profilebutton">
+<% if user_signed_in? && current_user.id == @profile.user_id %>
+<button type="button" class="btn btn-default"><%= link_to "Edit Profile", "/profiles/#{@profile.id}/edit" %></button>
+<button type="button" class="btn btn-default"><%= link_to "Delete Profile", "/profiles/#{@profile.id}", method: :delete %></button>
+<% end %>
+  </div>
+</div>

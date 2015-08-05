@@ -5,6 +5,26 @@
   <h2>End Time: <%= @game.end_time.strftime("%b %e%l:%M%p")  %></h2>
   <h2>Players Joined: <%= @game.players_joined %></h2>
   <h2>Description: <%= @game.description %></h2>
+
+
+<h1>Players</h1>
+  <table class="table table-condensed" border="1" style="width:50%">
+  <th>Name</th>
+  <th>Height</th>
+  <th>Position</th>
+  <th>Experience</th>
+      <tr>
+        <% @joinedusers.each do |joineduser| %>
+        <% Profile.where(user_id: joineduser.user_id).each do |player| %>
+        <td><%= link_to player.first_name, "/profiles/#{player.id}" %></td>
+        <td><%= player.height %></td>
+        <td><%= player.position %></td>
+        <td><%= player.experience %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+
   <div>
     <iframe
     width="600"
@@ -33,23 +53,5 @@
 <br>
 <%= link_to "Delete Game", "/games/#{@game.id}", method: :delete %>
 <% end %>
-
-<h1>Players</h1>
-  <table class="table table-condensed" border="1" style="width:50%">
-  <th>Name</th>
-  <th>Height</th>
-  <th>Position</th>
-  <th>Experience</th>
-      <tr>
-        <% @joinedusers.each do |joineduser| %>
-        <% Profile.where(user_id: joineduser.user_id).each do |player| %>
-        <td><%= link_to player.first_name, "/profiles/#{player.id}" %></td>
-        <td><%= player.height %></td>
-        <td><%= player.position %></td>
-        <td><%= player.experience %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </table>
 
 
