@@ -41,13 +41,18 @@
                         <%= link_to "My Profile", "/profiles/#{Profile.find_by(user_id: current_user.id).id}" %>
                         <% end %></a>
                 </li>
-                            <div class="jumbotron" style="color: black;" ng-if="gameinfo">{{gameinfo}}</div>
             </ul>
+                <div class="jumbotron" style="color: black;" ng-if="gameinfo"><h4>{{gameinfo}}</h4></div>
          </div>
         <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
+<% flash.each do |name, message| %>
+<div class="alert alert-<%= name %> alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= message %>
+</div>
+<% end %>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
