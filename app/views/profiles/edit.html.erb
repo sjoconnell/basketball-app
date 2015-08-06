@@ -11,7 +11,7 @@
 <% end %>
 
 
-<%= form_tag "/profiles/#{@profile.id}", method: :patch do %>
+<%= form_tag "/profiles/#{@profile.id}", multipart: true, method: :patch do %>
 <h1 class="create-game">Edit Profile</h1>
 <br>
 <div class ="row">
@@ -66,6 +66,18 @@
       </div>
         <div class="panel-body">
           <%= select_tag(:experience, options_for_select([['None'], ['Recreational'], ['High School'], ['College'], ['Pro']], selected: @profile.experience )) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading" id="create-update-game">
+        <h3 class="panel-title">Photo</h3>
+      </div>
+        <div class="panel-body">
+          <%= file_field_tag :image %>
+          <%= hidden_field :image_cache, @profile.image %>
       </div>
     </div>
   </div>
