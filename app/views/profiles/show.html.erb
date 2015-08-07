@@ -11,16 +11,26 @@
   </div>
 
 <div class="col-md-6">
+  <ul class="list-group" >
+      <li class="list-group-item" id="profile-information-show">Profile Picture</li>
+      <li class="list-group-item" id="profile-image"><%= image_tag @profile.image, size: '227' %></li>
+   </ul>
+</div> 
+
+<div class="col-md-12">
 <div class="panel panel-default">
   <div class="panel-heading" id="games-in-profiles">Joined Games</div>
   <table class="profiletable" border="1">
   <th>Title</th>
   <th>Status</th>
+  <th>Start Time</th>
+
       <tr>
         <% @joinedgames.each do |joinedgame| %>
         <% Game.where("id = #{joinedgame.game_id} AND end_time > ?", Time.now).each do |game| %>
         <td><%= link_to game.title, "/games/#{game.id}" %></td>
         <td><%= game.status %></td>
+        <td><%= game.start_time.strftime("%b %e %l:%M%p") %></td>
       </tr>
       <% end %>
     <% end %>

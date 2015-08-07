@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<%= form_tag '/profiles', method: :post do %>
+<%= form_tag '/profiles', multipart: true, method: :post do %>
 <h1 class="create-game">Create Profile</h1>
 <br>
 <div class ="row">
@@ -65,6 +65,17 @@
       </div>
         <div class="panel-body">
           <%= select_tag(:experience, options_for_select([['None'], ['Recreational'], ['High School'], ['College'], ['Pro']], selected: :experience )) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading" id="create-update-game">
+        <h3 class="panel-title">Photo</h3>
+      </div>
+        <div class="panel-body">
+          <%= file_field_tag :image %>
       </div>
     </div>
   </div>
